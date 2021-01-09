@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -28,6 +30,11 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
+  config.log_formatter = ::Logger::Formatter.new
+
+  logger = ActiveSupport::Logger.new($stdout)
+  logger.formatter = config.log_formatter
+  config.logger = ActiveSupport::TaggedLogging.new(logger)
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
