@@ -25,7 +25,7 @@ export default class ResultsView {
     new ScrollBar(this.elm.querySelector('.scroll-bar'));
     // ヘッダ+ ヘッダのツールチップ用のデータ設定
     this.elm.querySelector('.tablecontainer > table.results-view > thead > tr').innerHTML = COLUMNS.map(column => `<th class="${column.id}"><p data-tooltip-id="table-header-${column.id}">${column.label}</p></th>`).join('');
-
+    // ボディの参照
     this.tbody = this.elm.querySelector('.tablecontainer > table.results-view > tbody');
 
     // スクロール制御
